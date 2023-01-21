@@ -1,0 +1,25 @@
+import * as React from "react";
+/* ADD IMPORTS FROM TODO ON THE NEXT LINE */
+
+
+/**
+* The About function defines the component that makes up the About page
+* This component is attached to the /about path in router.jsx
+*/
+
+export default function About() {
+  /* DECLARE STYLE AND TRIGGER FOR WIGGLE EFFECT FROM TODO ON NEXT LINE */
+  
+  return (
+    <div className="page">
+      {/* REPLACE H1 ELEMENT BELOW WITH CODE FROM TODO */}
+      <h1 className="title">
+        Study Spot Locator
+      </h1>
+      {/* REPLACE OPENING P TAG BELOW WITH CODE FROM TODO */}
+      <p>
+        Navigate through our interactive map to find your ideal study spot on campus!
+      </p>
+    </div>
+  );
+}
