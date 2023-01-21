@@ -10,6 +10,7 @@ import {
   } from '@chakra-ui/react';
   
   import mainImage from '../assets/techlife.png';
+  import { Link } from "wouter"
 
   export default function CallToActionWithIllustration() {
     return (
@@ -41,7 +42,7 @@ import {
               colorScheme={'blue'}
               bg={'blue.300'}
               _hover={{ bg: 'blue.200' }}>
-              Search
+              <Link href="/map">Search</Link>
             </Button>
             <Button rounded={'full'} px={10}>
               Learn more

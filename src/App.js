@@ -14,11 +14,18 @@ import { Logo } from './Logo';
 import Home from './pages';
 import Navbar from './components/navbar.jsx';
 
+import { Router } from "wouter"
+import PageRouter from "./components/router.jsx"
+
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Home />
-    </ChakraProvider>
+    <Router>
+      <ChakraProvider theme={theme}>
+        <Navbar />
+        <PageRouter />
+      </ChakraProvider>
+    </Router>
+    
   );
 }
 
