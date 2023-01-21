@@ -12,7 +12,7 @@ import {
   import mainImage from '../assets/techlife.png';
   import { Link } from "wouter"
 
-  export default function CallToActionWithIllustration() {
+  export default function Home() {
     return (
       <Container maxW={'5xl'}>
         <Stack
@@ -44,7 +44,7 @@ import {
               _hover={{ bg: 'blue.200' }}>
               <Link href="/map">Search</Link>
             </Button>
-            <Button rounded={'full'} px={10}>
+            <Button rounded={'full'} px={10} href="info">
               <Link href="info">Learn more</Link>
             </Button>
           </Stack>
