@@ -17,7 +17,6 @@ import Navbar from './components/navbar.jsx';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Navbar/>
       <Home />
     </ChakraProvider>
   );
