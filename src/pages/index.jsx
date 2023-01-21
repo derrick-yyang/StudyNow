@@ -45,7 +45,7 @@ import {
               <Link href="/map">Search</Link>
             </Button>
             <Button rounded={'full'} px={10}>
-              Learn more
+              <Link href="info">Learn more</Link>
             </Button>
           </Stack>
           <Flex w={'full'} align="center" justify="center">

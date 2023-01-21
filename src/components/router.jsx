@@ -4,6 +4,7 @@ import { Switch, Route, Router } from "wouter";
 import Home from "../pages/index";
 import Login from "../pages/login";
 import Map from "../pages/map";
+import Info from "../pages/info"
 
 
 /**
@@ -19,5 +20,6 @@ export default () => (
       <Route path="/" component={Home} />
       <Route path="/map" component={Map} />
       <Route path="/login" component={Login} />
+      <Route path="/info" component={Info} />
     </Switch>
 );
