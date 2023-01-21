@@ -27,17 +27,6 @@ export default function Home() {
         src="https://cdn.glitch.global/db0b1acf-1e9e-472c-a9ba-be6360e28058/Wonder%20Learners%20-%20Pop%20Quiz.png?v=1674326884832"
         className="illustration"
       />
-    
-      <div className="instructions">
-        <h2>Using this project</h2>
-        <p>
-          This is the Glitch <strong>Hello React</strong> project. You can use
-          it to build your own app. See more info in the{" "}
-          <Link href="/about">About</Link> page, and check out README.md in the
-          editor for additional detail plus next steps you can take!
-        </p>
-      </div>
-     
     </>
   );
 }
