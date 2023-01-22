@@ -23,10 +23,15 @@ import {
     ChevronRightIcon,
   } from '@chakra-ui/icons';
   import { MoonIcon, SunIcon } from '@chakra-ui/icons';
-  
+  import { useAuth } from '../contexts/AuthContext';
+  import { useNavigate } from 'react-router-dom';
+
+
   export default function WithSubnavigation() {
     const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onToggle } = useDisclosure();
+    const { currentUser, logout } = useAuth();
+    const navigate = useNavigate();
   
     return (
       <Box>
@@ -76,15 +81,15 @@ import {
             <Button onClick={toggleColorMode}>
               {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
             </Button>
-            <Button
+            {!currentUser && <Button
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
               variant={'link'}
               href={'/login'}>
               Sign In
-            </Button>
-            <Link href="signup" style={{ textDecoration: 'none' }}>
+            </Button>}
+            {!currentUser && <Link href="signup" style={{ textDecoration: 'none' }}>
               <Button
                 display={{ base: 'none', md: 'inline-flex' }}
                 fontSize={'sm'}
@@ -97,7 +102,37 @@ import {
                 }}>
                 Sign Up
               </Button>
-            </Link>
+            </Link>}
+            {currentUser && <Link href="profile" style={{ textDecoration: 'none' }}>
+              <Button
+                display={{ base: 'none', md: 'inline-flex' }}
+                fontSize={'sm'}
+                fontWeight={600}
+                color={'white'}
+                bg={'blue.400'}
+                href={'/profile'}
+                _hover={{
+                  bg: 'blue.300',
+                }}>
+                Profile
+              </Button>
+            </Link>}
+            {currentUser && <Button
+              display={{ base: 'none', md: 'inline-flex' }}
+              fontSize={'sm'}
+              fontWeight={600}
+              color={'white'}
+              bg={'blue.400'}
+              onClick={async e => {
+                e.preventDefault()
+                logout();
+                navigate('/')
+              }}
+              _hover={{
+                bg: 'blue.300',
+              }}>
+              Logout
+            </Button>}
           </Stack>
         </Flex>
   
