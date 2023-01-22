@@ -11,8 +11,10 @@ import {
   
   import mainImage from '../assets/techlife.png';
   import { Link } from "wouter"
+  import { useAuth } from '../contexts/AuthContext';
 
   export default function Home() {
+    const { currentUser } = useAuth()
     return (
       <Container maxW={'5xl'}>
         <Stack

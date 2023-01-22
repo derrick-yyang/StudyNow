@@ -5,7 +5,8 @@ import Home from "../pages/index";
 import Login from "../pages/login";
 import Signup from "../pages/signup";
 import MapPage from "../pages/map";
-import Info from "../pages/info"
+import Info from "../pages/info";
+import Profile from "../pages/profile";
 
 
 /**
@@ -23,5 +24,6 @@ export default () => (
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/info" component={Info} />
+      <Route path="/profile" component={Profile} />
     </Switch>
 );
