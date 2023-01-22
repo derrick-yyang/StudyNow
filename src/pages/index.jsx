@@ -36,17 +36,19 @@ import {
     
           </Text>
           <Stack spacing={6} direction={'row'}>
-            <Button
-              rounded={'full'}
-              px={10}
-              colorScheme={'blue'}
-              bg={'blue.300'}
-              _hover={{ bg: 'blue.200' }}>
-              <Link href="/map">Search</Link>
-            </Button>
-            <Button rounded={'full'} px={10} href="info">
-              <Link href="info">Learn more</Link>
-            </Button>
+            <Link href="/map">
+              <Button
+                rounded={'full'}
+                px={10}
+                colorScheme={'blue'}
+                bg={'blue.300'}
+                _hover={{ bg: 'blue.200' }}>
+                Search
+              </Button>
+            </Link>
+            <Link href="info">
+              <Button rounded={'full'} px={10} href="info">Learn more</Button>
+            </Link>
           </Stack>
           <Flex w={'full'} align="center" justify="center">
             <img src = {mainImage}

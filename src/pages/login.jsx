@@ -58,6 +58,11 @@ import {
                   Sign in
                 </Button>
               </Stack>
+              <Stack pt={6}>
+                <Text align={'center'}>
+                  Don't have an account? <Link href="signup" color={'blue.400'}>Sign Up</Link>
+                </Text>
+              </Stack>
             </Stack>
           </Box>
         </Stack>
