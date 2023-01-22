@@ -33,7 +33,7 @@ import {
             Study Spot
           </Heading>
           <Text color={'gray.500'} maxW={'3xl'}>
-          Our web app <strong>Study Spot Locator</strong> is all about finding your ideal study spot on campus! Begin by going to our {" "}
+          Our web app <strong>StudyNow</strong> is all about finding your ideal study spot on campus! Begin by going to our {" "}
           <a href="/about"><strong>Search</strong></a> page to find and compare study spots on campus near you.
     
           </Text>
