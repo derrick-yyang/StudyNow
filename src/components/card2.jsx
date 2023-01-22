@@ -1,7 +1,8 @@
 import * as React from "react";
 import Image from '../assets/location.png'; 
-import portraitImage from '../assets/librarian.png';
+import portraitImage from '../assets/star.png';
 import {useEffect, useState } from "react";
+import DropDown from './dropdown.jsx';
 
 import {
     useDisclosure,
@@ -31,17 +32,6 @@ export default function Card2() {
                 rounded={'md'}
                 p={6}
                 overflow={'hidden'}>
-                <Box
-                h={'210px'}
-                bg={'gray.100'}
-                mt={-6}
-                mx={-6}
-                mb={6}
-                pos={'relative'}>
-                <img
-                    src={Image}
-                /> 
-                </Box>
                 <Stack>
                 <Text
                     color={'green.500'}
@@ -51,29 +41,17 @@ export default function Card2() {
                     letterSpacing={1.1}>
                     University of Waterloo
                 </Text>
+                <Text color={'gray.500'}>
+                    Learn more about the Study spots offered here:
+                </Text>
                 <Heading
                     color={useColorModeValue('gray.700', 'white')}
                     fontSize={'2xl'}
                     fontFamily={'body'}>
                     DC Library
                 </Heading>
-                
-                <Text color={'gray.500'}>
-                    The Davis Centre Library is divided into three zones that are colour-coded beige (silent study zone), 
-                    green (quiet study zone), and grey (group study zone).
-                </Text>
-                
+                <DropDown/>
                 </Stack>
-                <Stack mt={6} direction={'row'} spacing={4} >
-                <Avatar
-                    src={portraitImage}
-                    alt={'Author'}
-                />
-                <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                    <Text fontWeight={600}>Librarian Mrs. Kelly</Text>
-                    <Text color={'gray.500'}>415-233-3412 · Mon-Fri</Text>
-                </Stack>
-                </Stack>  
             </Box>
         </div>
         </>
