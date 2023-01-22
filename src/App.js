@@ -16,6 +16,7 @@ import Navbar from './components/navbar.jsx';
 
 import { Router } from "wouter"
 import PageRouter from "./components/router.jsx"
+import ReactDOM from 'react-dom/client';
 
 function App() {
   return (

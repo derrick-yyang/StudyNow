@@ -1,4 +1,8 @@
 import * as React from "react";
+import Image from '../assets/location.png'; 
+import portraitImage from '../assets/librarian.png';
+import ReactCardFlip from "react-card-flip";
+import {useEffect, useState } from "react";
 
 import {
     Drawer,
@@ -11,11 +15,21 @@ import {
     Button,
     DrawerCloseButton,
     Input,
+    Text,
+    Stack,
+    Avatar,
+    useColorModeValue,
+    Box,
+    Center,
+    Heading,
   } from '@chakra-ui/react'
+import Card from "./card";
+import Card2 from "./card2";
 
 export default function DrawerExample() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
+    const [flip, setFlip] = useState(false);
   
     return (
       <>
@@ -28,13 +42,27 @@ export default function DrawerExample() {
           onClose={onClose}
           finalFocusRef={btnRef}
         >
-          <DrawerOverlay />
-          <DrawerContent>
+          <DrawerOverlay  />
+          <DrawerContent w={'5000px'}>
             <DrawerCloseButton />
-            <DrawerHeader>Create your account</DrawerHeader>
+            <DrawerHeader>Campus Study Spot</DrawerHeader>
   
             <DrawerBody>
-              <Input placeholder='Type here...' />
+          
+              <ReactCardFlip isFlipped={flip}
+                flipDirection="horizontal">
+                <div key="front">
+                 
+                    <button  onClick={() => setFlip(!flip)}>
+                    <Card/></button>
+                </div>
+                <div key="back">
+                   
+                     <button  onClick={() => setFlip(!flip)}>
+                     <Card2/></button>
+                </div>
+                
+            </ReactCardFlip>
             </DrawerBody>
   
             <DrawerFooter>
