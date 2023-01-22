@@ -64,7 +64,7 @@ import {
                 textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
                 fontFamily={'heading'}
                 color={useColorModeValue('gray.800', 'white')}>
-                Logo
+                StudyNow
               </Text>
             </Link>
   

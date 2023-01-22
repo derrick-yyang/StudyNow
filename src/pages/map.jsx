@@ -59,6 +59,10 @@ export class MapContainer extends Component {
           position={{ lat: 43.47330, lng: -80.54411}}
           onClick={()=>{console.log("click!")}}
         />
+        <center>
+            <Drawer/>
+        </center>
+
         {/* Below is STC */}
         <Marker position={{ lat: 43.470837, lng: -80.54411}} /> 
         {/* Below is SLC */}
@@ -74,7 +78,7 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: '[API KEY]'
+  apiKey: 'AIzaSyAuVVDjHQcMKXWF-23o9vPqCSyQgkJb7R4'
 })(MapContainer);
 
 // export default function MapPage() {
