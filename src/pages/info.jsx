@@ -9,6 +9,7 @@ import {
     Grid,
     GridItem,
     Container,
+    Link,
 } from '@chakra-ui/react';
 import { } from '@chakra-ui/react';
 
@@ -44,9 +45,11 @@ export default function Info() {
                             📍 Your map to success.
                         </chakra.h2>
                         <div class="text-center">
-                            <Button color='white' bg='blue.400' size="md">
-                                Try It Now
-                            </Button>
+                            <Link href="/" style={{ textDecoration: 'none' }}>
+                                <Button color='white' bg='blue.400' size="md">
+                                    Try It Now
+                                </Button>
+                            </Link>
                         </div>
                         
                     </VStack>
