@@ -14,6 +14,7 @@ import {
     useColorModeValue,
     useBreakpointValue,
     useDisclosure,
+    useColorMode,
   } from '@chakra-ui/react';
   import {
     HamburgerIcon,
@@ -21,9 +22,16 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
-  
+  import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+  import { useAuth } from '../contexts/AuthContext';
+  import { useNavigate } from 'react-router-dom';
+
+
   export default function WithSubnavigation() {
+    const { colorMode, toggleColorMode } = useColorMode();
     const { isOpen, onToggle } = useDisclosure();
+    const { currentUser, logout } = useAuth();
+    const navigate = useNavigate();
   
     return (
       <Box>
@@ -51,12 +59,14 @@ import {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Text
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              fontFamily={'heading'}
-              color={useColorModeValue('gray.800', 'white')}>
-              Logo
-            </Text>
+            <Link href="/">
+              <Text
+                textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+                fontFamily={'heading'}
+                color={useColorModeValue('gray.800', 'white')}>
+                Logo
+              </Text>
+            </Link>
   
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
               <DesktopNav />
@@ -68,26 +78,61 @@ import {
             justify={'flex-end'}
             direction={'row'}
             spacing={6}>
-            <Button
+            <Button onClick={toggleColorMode}>
+              {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+            </Button>
+            {!currentUser && <Button
               as={'a'}
               fontSize={'sm'}
               fontWeight={400}
               variant={'link'}
-              href={'#'}>
+              href={'/login'}>
               Sign In
-            </Button>
-            <Button
+            </Button>}
+            {!currentUser && <Link href="signup" style={{ textDecoration: 'none' }}>
+              <Button
+                display={{ base: 'none', md: 'inline-flex' }}
+                fontSize={'sm'}
+                fontWeight={600}
+                color={'white'}
+                bg={'blue.400'}
+                href={'/signup'}
+                _hover={{
+                  bg: 'blue.300',
+                }}>
+                Sign Up
+              </Button>
+            </Link>}
+            {currentUser && <Link href="profile" style={{ textDecoration: 'none' }}>
+              <Button
+                display={{ base: 'none', md: 'inline-flex' }}
+                fontSize={'sm'}
+                fontWeight={600}
+                color={'white'}
+                bg={'blue.400'}
+                href={'/profile'}
+                _hover={{
+                  bg: 'blue.300',
+                }}>
+                Profile
+              </Button>
+            </Link>}
+            {currentUser && <Button
               display={{ base: 'none', md: 'inline-flex' }}
               fontSize={'sm'}
               fontWeight={600}
               color={'white'}
-              bg={'pink.400'}
-              href={'#'}
+              bg={'blue.400'}
+              onClick={async e => {
+                e.preventDefault()
+                logout();
+                navigate('/')
+              }}
               _hover={{
-                bg: 'pink.300',
+                bg: 'blue.300',
               }}>
-              Sign Up
-            </Button>
+              Logout
+            </Button>}
           </Stack>
         </Flex>
   
@@ -249,43 +294,4 @@ import {
     href?: string;
   }
   
-  const NAV_ITEMS: Array<NavItem> = [
-    {
-      label: 'Inspiration',
-      children: [
-        {
-          label: 'Explore Design Work',
-          subLabel: 'Trending Design to inspire you',
-          href: '#',
-        },
-        {
-          label: 'New & Noteworthy',
-          subLabel: 'Up-and-coming Designers',
-          href: '#',
-        },
-      ],
-    },
-    {
-      label: 'Find Work',
-      children: [
-        {
-          label: 'Job Board',
-          subLabel: 'Find your dream design job',
-          href: '#',
-        },
-        {
-          label: 'Freelance Projects',
-          subLabel: 'An exclusive list for contract work',
-          href: '#',
-        },
-      ],
-    },
-    {
-      label: 'Learn Design',
-      href: '#',
-    },
-    {
-      label: 'Hire Designers',
-      href: '#',
-    },
-  ];
+  const NAV_ITEMS: Array<NavItem> = [];

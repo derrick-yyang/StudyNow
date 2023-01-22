@@ -3,8 +3,10 @@ import { Switch, Route, Router } from "wouter";
 
 import Home from "../pages/index";
 import Login from "../pages/login";
-import Map from "../pages/map";
-import Info from "../pages/info"
+import Signup from "../pages/signup";
+import MapPage from "../pages/map";
+import Info from "../pages/info";
+import Profile from "../pages/profile";
 
 
 /**
@@ -18,8 +20,10 @@ import Info from "../pages/info"
 export default () => (
     <Switch>
       <Route path="/" component={Home} />
-      <Route path="/map" component={Map} />
+      <Route path="/map" component={MapPage} />
       <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
       <Route path="/info" component={Info} />
+      <Route path="/profile" component={Profile} />
     </Switch>
 );
